@@ -1,0 +1,16 @@
+certifi==2020.4.5.1
+cycler==0.10.0
+# Editable install with no version control (gizmopy==0.0.1)
+-e /mnt/c/Users/fhorr/Documents/gizmopy
+h5py==2.10.0
+kiwisolver==1.2.0
+llvmlite==0.32.1
+matplotlib==3.2.1
+meshoid==1.1
+numba==0.49.1
+numpy==1.18.4
+pyparsing==2.4.7
+python-dateutil==2.8.1
+scipy==1.4.1
+six==1.15.0
+tqdm==4.46.0
