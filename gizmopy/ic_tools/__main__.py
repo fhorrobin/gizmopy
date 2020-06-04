@@ -1,4 +1,4 @@
-from gizmopy.ic_tools import generate_disk_ics
+from gizmopy.ic_tools import generate_disk_ics, generate_disk_ics_grid
 from argparse import ArgumentParser
 
 
@@ -14,6 +14,7 @@ argparser.add_argument("gamma", help="adiabatic index")
 argparser.add_argument("-G", help="gravitational constant (code units, default: 1.0)", default=1.0)
 argparser.add_argument("-Mstar", help="mass of the star (code units, default: 1.0)", default=1.0)
 argparser.add_argument("--output_file", "-o", help="name of file to output (default: ic_disk.hdf5)", default="ic_disk")
+argparser.add_argument("--grid", "-g", help="generate ics on a grid with uneven particle mass (default: false)", default=False, action='store_true')
 
 results = argparser.parse_args()
 
@@ -29,4 +30,7 @@ G = float(results.G)
 Mstar = float(results.Mstar)
 fname = results.output_file
 
-generate_disk_ics(N, r_in, r_out, alpha, sigma0, T0, h, gamma, G, Mstar, fname)
+if not results.grid:
+    generate_disk_ics(N, r_in, r_out, alpha, sigma0, T0, h, gamma, G, Mstar, fname)
+else:
+    generate_disk_ics_grid(N, r_in, r_out, alpha, sigma0, T0, h, gamma, G, Mstar, fname)
