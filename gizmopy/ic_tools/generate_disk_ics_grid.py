@@ -39,7 +39,7 @@ def generate_grid_coordinates(r_max, r_min, z_max, Nxy, Nz, alpha, sigma0, h):
     x, y, z = x[mask], y[mask], z[mask]
 
     R = R[mask]
-    mass = 2 * np.pi * (r_max**2 - r_min**2) * sigma0 / (Nxy**2 * Nz) * R**(alpha) * np.exp(-z**2 / (R * h)**2)
+    mass = f(r, r_in, r_out, 2 * h) * 2 * np.pi * (r_max**2 - r_min**2) * sigma0 / (Nxy**2 * Nz) * R**(alpha) * np.exp(-z**2 / (R * h)**2)
 
     mask = mass > 1e-12
     x, y, z = x[mask], y[mask], z[mask]
